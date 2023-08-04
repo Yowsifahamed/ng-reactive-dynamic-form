@@ -41,11 +41,11 @@ The Angular library allows easy creation of dynamic reactive forms by passing a 
  export class AppComponent implements OnInit{
   public form: Array<any> = [
     {
-      fieldName: "Name", formControl: 'Name', ErrorMsg: "Name is required", ErrorMsgDescription: "", 
+      fieldName: "Name", formControl: 'Name', errorMsg: "Name is required", ErrorMsgDescription: "", 
       initalValue: "Yowsif", validation: true
     },
     {
-      fieldName: "Job", formControl: 'Job', ErrorMsg: "Job is required", ErrorMsgDescription: "", 
+      fieldName: "Job", formControl: 'Job', errorMsg: "Job is required", ErrorMsgDescription: "", 
       initalValue: "Software engineer", validation: true
     }
   ];

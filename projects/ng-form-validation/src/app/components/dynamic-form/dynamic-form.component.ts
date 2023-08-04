@@ -8,7 +8,7 @@ import { FormDataModel } from './form-data.model';
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.scss']
 })
-export class DynamicFormComponent implements OnInit, OnChanges {
+export class DynamicFormComponent implements OnChanges {
   @Input() formData: any;
   @Output() formSubmitted: EventEmitter<string> = new EventEmitter<string>();
 
@@ -16,13 +16,7 @@ export class DynamicFormComponent implements OnInit, OnChanges {
   
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {
- 
-  }
-
-  ngOnInit(): void {
-
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['formData'] !== undefined) {
