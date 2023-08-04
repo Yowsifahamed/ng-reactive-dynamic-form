@@ -7,7 +7,7 @@ The Angular library simplifies the creation of reactive forms using JSON data. W
 Install via NPM, using the command below.
 
 ```
-npm install --save npm i ng-reactive-dynamic-form
+npm install ng-reactive-dynamic-form
 ```
 
 ## Getting started
