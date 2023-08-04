@@ -1,0 +1,30 @@
+<div class="register-form">
+  <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <ng-container *ngFor="let data of formData">
+      <div class="form-group">
+        <label class="form-label"> {{ data.fieldName }}</label>
+        <div class="input-section">
+          <input type="text" [formControlName]="data.formControl" class="form-control" 
+          [ngClass]="{ 'is-invalid': submitted && f[data.formControl].errors }"/>
+          <div *ngIf="submitted && f[data.formControl]!.errors"  [ngClass]="{
+            'is-invalid-form': submitted && f[data.formControl].errors,
+            'invalid-feedback': !submitted || !f[data.formControl].errors}">
+            <div class="is-invalid-form"> {{ data.ErrorMsg }}</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary form-submit">Register</button>
+      <button type="button" (click)="onReset()" class="btn btn-warning">
+        Reset
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- <pre> {{ dynamicForm.value | json }}</pre>
+<pre> {{ formData | json }}</pre> -->
+

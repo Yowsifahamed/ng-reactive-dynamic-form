@@ -1,0 +1,22 @@
+.register-form{
+    .form-group{
+        .form-label{
+            font-weight: 700;
+        }
+
+        .input-section{
+            margin-bottom: 12px;
+            .form-control{
+                
+            }
+
+            .is-invalid-form{
+                color: #dc3545;
+            }
+        }
+
+        .form-submit{
+            margin-right: 12px;
+        }
+    }
+}
