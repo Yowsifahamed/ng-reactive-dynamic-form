@@ -1,0 +1,19 @@
+{
+    "button": "button",
+    "checkbox": "checkbox",
+    "color": "color",
+    "date": "date",
+    "email": "email",
+    "file": "file",
+    "image": "image",
+    "month": "month",
+    "number": "number",
+    "password": "password",
+    "radio": "radio",
+    "range": "range",
+    "tel": "tel",
+    "text": "text",
+    "time": "time",
+    "url": "url",
+    "week": "week"
+}

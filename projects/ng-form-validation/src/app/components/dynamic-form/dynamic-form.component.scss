@@ -6,9 +6,6 @@
 
         .input-section{
             margin-bottom: 12px;
-            .form-control{
-                
-            }
 
             .is-invalid-form{
                 color: #dc3545;
@@ -17,6 +14,16 @@
 
         .form-submit{
             margin-right: 12px;
+        }
+    }
+
+    .form-check{
+        .input-checkbox{
+            margin-bottom: 12px;
+
+            .is-invalid-form{
+                color: #dc3545;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormDataModel } from './components/dynamic-form/form-data.model';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,27 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  public form: Array<any> = [
+  public form: Array<FormDataModel> = [
     {
-      fieldName: "Name", formControl: 'Name', ErrorMsg: "Name is required", ErrorMsgDescription: "", 
-      initalValue: "Yowsif", validation: true
+      fieldName: "checkbox 1", formControl: 'checkbox1', errorMsg: "checkbox is required", ErrorMsgDescription: "", 
+      initalValue: "true", validation: false, inputType: "checkbox"
     },
     {
-      fieldName: "Job", formControl: 'Job', ErrorMsg: "Job is required", ErrorMsgDescription: "", 
-      initalValue: "Software engineer", validation: true
-    }
+      fieldName: "Name", formControl: 'Name', errorMsg: "Name is required", ErrorMsgDescription: "", 
+      initalValue: "Yowsif", validation: true, inputType: "text"
+    },
+    {
+      fieldName: "checkbox 2", formControl: 'checkbox2', errorMsg: "checkbox is required", ErrorMsgDescription: "", 
+      initalValue: "true", validation: false, inputType: "checkbox"
+    },
+    {
+      fieldName: "number", formControl: 'number', errorMsg: "number is required", ErrorMsgDescription: "", 
+      initalValue: 20, validation: true, inputType: "number"
+    },
+    {
+      fieldName: "Job", formControl: 'password', errorMsg: "Job is required", ErrorMsgDescription: "", 
+      initalValue: "Software engineer", validation: true, inputType: "password"
+    },
   ];
   
   ngOnInit(): void {

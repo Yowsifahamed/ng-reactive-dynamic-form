@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormDataModel } from './form-data.model';
 
 
 @Component({
@@ -25,20 +26,33 @@ export class DynamicFormComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['formData'] !== undefined) {
-      this.formData.forEach((element:any) => {
-        this.addDynamicControl(element.formControl, element.initalValue, element.validation)
+      this.formData.forEach((element:FormDataModel) => {
+        this.addDynamicControl(element.formControl, element.initalValue, element.validation, element.inputType)
       });
     }
   }
 
-  addDynamicControl(formControl: string, initalValue: string, validation: boolean) {
-    const control = new FormControl(initalValue, Validators.required);
-    this.dynamicForm.addControl(formControl, control);
+  public addDynamicControl(formControl: string, initialValue: string | boolean | number, validation: boolean, inputType: string): void {
+    this.dynamicForm.addControl(formControl, this.buildFormControl(initialValue, validation, inputType === 'checkbox' ? Validators.requiredTrue : Validators.required));
+  }
+
+  public buildFormControl(initialValue: string | boolean | number, validation: boolean, validators: Validators){
+    let control = new FormControl(initialValue, validation ? validators : new FormControl(initialValue))
+    return control;
+  }
+  
+  public getSelectedCheckboxData($event: any, data: FormDataModel): void {
+    const formControl: FormGroup = this.dynamicForm.get(data?.formControl) as FormGroup;
+    formControl.setValue($event.target.checked);
   }
   
 
   get f(): { [key: string]: AbstractControl } {
     return this.dynamicForm.controls;
+  }
+
+  public hasError(btnSubmit: boolean, control: any ){
+    return btnSubmit && control;
   }
 
   onSubmit(): void {
