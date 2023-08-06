@@ -14,7 +14,7 @@ import { FormDataModel } from './form-data.model';
             <label class="form-check-label" [ngClass]="{ 'is-invalid-form': hasError(submitted, f[data?.formControl].errors) }">
               <input [type]="data?.inputType" [formControlName]="data?.formControl" class="form-check-input"
               (change)="getSelectedCheckboxData($event, data);"/> 
-              {{ data?.fieldName }} value  {{ f[data?.formControl].value}}
+              {{ data?.fieldName }}
             </label>
             <div *ngIf="hasError(submitted, f[data?.formControl].errors)" [ngClass]="{
               'is-invalid-form': hasError(submitted, f[data?.formControl].errors),
