@@ -9,6 +9,12 @@ Install via NPM, using the command below.
 ```
 npm install ng-reactive-dynamic-form
 ```
+## Compatibility
+ng-reactive-dynamic-form is compatible with the following versions of Angular:
+
+```
+Angular 16.1.8 and later
+```
 
 ## Getting started
 
@@ -71,7 +77,3 @@ The Angular library allows easy creation of dynamic reactive forms by passing a 
   }
 }
 ```
-## Compatibility
-ng-reactive-dynamic-form is compatible with the following versions of Angular:
-
-Angular 16.1.8 and later
