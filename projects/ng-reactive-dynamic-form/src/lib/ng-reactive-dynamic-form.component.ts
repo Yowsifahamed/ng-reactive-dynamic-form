@@ -61,9 +61,6 @@ import { FormDataModel } from './form-data.model';
   
           .input-section{
               margin-bottom: 12px;
-              .form-control{
-                  
-              }
   
               .is-invalid-form{
                   color: #dc3545;
@@ -74,7 +71,17 @@ import { FormDataModel } from './form-data.model';
               margin-right: 12px;
           }
       }
-  }`
+  
+      .form-check{
+          .input-checkbox{
+              margin-bottom: 12px;
+  
+              .is-invalid-form{
+                  color: #dc3545;
+              }
+          }
+      }
+   }`
   ]
 })
 export class NgReactiveDynamicFormComponent implements OnChanges {
