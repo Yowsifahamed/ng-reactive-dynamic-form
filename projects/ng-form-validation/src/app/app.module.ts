@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { NgReactiveDynamicFormModule } from 'ng-reactive-dynamic-form';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegistrationFormComponent } from './components/registration-form/regist
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgReactiveDynamicFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

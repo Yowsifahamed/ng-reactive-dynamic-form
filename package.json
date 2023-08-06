@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "publish": "npm publish"
+    "fresh-install": "rmdir /s node_modules && npm cache clean --force && npm install"
   },
   "private": true,
   "dependencies": {

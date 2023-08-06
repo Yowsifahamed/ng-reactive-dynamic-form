@@ -1,6 +1,15 @@
 {
   "name": "ng-reactive-dynamic-form",
   "version": "0.0.1",
+  "description": "Angular dynamic form",
+  "keywords": [
+    "angular",
+    "forms", 
+    "reactive form",
+    "Form group",
+    "validator"
+  ],
+  "author": "Yowsif Ahamed",
   "peerDependencies": {
     "@angular/common": "^16.1.0",
     "@angular/core": "^16.1.0"
