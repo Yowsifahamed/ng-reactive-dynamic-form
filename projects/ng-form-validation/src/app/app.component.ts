@@ -10,7 +10,7 @@ import { FormDataModel } from './components/dynamic-form/form-data.model';
 export class AppComponent implements OnInit{
   public form: Array<FormDataModel> = [
     {
-      fieldName: "checkbox 1", formControl: 'checkbox1', errorMsg: "checkbox is required", ErrorMsgDescription: "", 
+      fieldName: "checkbox", formControl: 'checkbox1', errorMsg: "checkbox is required", ErrorMsgDescription: "", 
       initalValue: "true", validation: false, inputType: "checkbox"
     },
     {
@@ -18,15 +18,11 @@ export class AppComponent implements OnInit{
       initalValue: "Yowsif", validation: true, inputType: "text"
     },
     {
-      fieldName: "checkbox 2", formControl: 'checkbox2', errorMsg: "checkbox is required", ErrorMsgDescription: "", 
-      initalValue: "true", validation: false, inputType: "checkbox"
-    },
-    {
       fieldName: "number", formControl: 'number', errorMsg: "number is required", ErrorMsgDescription: "", 
       initalValue: 20, validation: true, inputType: "number"
     },
     {
-      fieldName: "Job", formControl: 'password', errorMsg: "Job is required", ErrorMsgDescription: "", 
+      fieldName: "password", formControl: 'password', errorMsg: "Password is required", ErrorMsgDescription: "", 
       initalValue: "Software engineer", validation: true, inputType: "password"
     },
   ];
