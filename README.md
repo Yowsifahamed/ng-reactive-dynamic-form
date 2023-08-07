@@ -47,36 +47,80 @@ The Angular library allows easy creation of dynamic reactive forms by passing a 
  export class AppComponent implements OnInit{
   public form: Array<FormDataModel> = [
       {
-        fieldName: "checkbox 1", formControl: 'checkbox1', errorMsg: "checkbox is required", ErrorMsgDescription: "", 
-        initalValue: "true", validation: false, inputType: "checkbox"
+        fieldName: "checkbox 1", 
+        formControl: 'checkbox1', 
+        errorMsg: "checkbox is required",  
+        initalValue: "true",
+        inputType: "checkbox",
+        validation: false
       },
       {
-        fieldName: "Name", formControl: 'Name', errorMsg: "Name is required", ErrorMsgDescription: "", 
-        initalValue: "Yowsif", validation: true, inputType: "text"
+        fieldName: "Name", 
+        formControl: 'Name', 
+        errorMsg: "Name is required",
+        initalValue: "Yowsif", 
+        inputType: "text",
+        validation: true
       },
       {
-        fieldName: "checkbox 2", formControl: 'checkbox2', errorMsg: "checkbox is required", ErrorMsgDescription: "", 
-        initalValue: "true", validation: false, inputType: "checkbox"
+        fieldName: "number", 
+        formControl: 'number', 
+        errorMsg: "number is required", 
+        initalValue: 20, 
+        inputType: "number",
+        validation: true
       },
       {
-        fieldName: "number", formControl: 'number', errorMsg: "number is required", ErrorMsgDescription: "", 
-        initalValue: 20, validation: true, inputType: "number"
-      },
-      {
-        fieldName: "Job", formControl: 'password', errorMsg: "Job is required", ErrorMsgDescription: "", 
-        initalValue: "Software engineer", validation: true, inputType: "password"
+        fieldName: "Job", 
+        formControl: 'password', 
+        errorMsg: "Job is required", 
+        initalValue: "Software engineer", 
+        inputType: "password",
+        validation: true
       },
     ];
-  
-  ngOnInit(): void {
-  
-  }
-
-  onSubmit($event: any){
-    console.log('$event', $event)
-  }
 }
 ```
+
+To get all the input data entered by the user from the form, you can use the #formValue object in the onSubmit function
+
+```
+  onSubmit(formValue: any){
+    console.log('$event', $event)
+  }
+```
+
+The primary button is a submit type button, and the secondary button is a reset button. You can customize the button names and their classes according to your requirements
+
+```
+  public buttonData = {
+    primaryButton: {
+      buttonName: "Submit",
+      class: "submit-btn"
+    },
+    resetButon: {
+      buttonName: "Reset",
+      enableResetButton: true,
+      class: "reset-btn"
+    }
+  }
+```
+
+## Default Locale Options
+
+| Key |	Value
+| --- | ---
+| fieldName | Input field name
+| formControl | Reactive form's form control (input)
+| errorMsg | Error message
+| initalValue | Initial value of the form control (input)
+| inputType | Input type: text | checkbox | password | number
+| placeholder | Placeholder of the form control (input)
+| customInputClass | Customized class for form control (input)
+| customLabelClass | Customized class for form control's label
+| id | ID of the form control (input)
+| validation | Boolean (true or false)
+
 
 ## License
 
