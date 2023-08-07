@@ -45,7 +45,7 @@ The Angular library allows easy creation of dynamic reactive forms by passing a 
 
 ```
  export class AppComponent implements OnInit{
-  public form: Array<FormDataModel> = [
+  public form: Array<any> = [
       {
         fieldName: "checkbox 1", 
         formControl: 'checkbox1', 
@@ -86,7 +86,7 @@ To get all the input data entered by the user from the form, you can use the #fo
 
 ```
   onSubmit(formValue: any){
-    console.log('$event', $event)
+    console.log('formValue', formValue)
   }
 ```
 
