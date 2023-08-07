@@ -38,6 +38,7 @@ The Angular library allows easy creation of dynamic reactive forms by passing a 
 ```
  <lib-ng-reactive-dynamic-form
     [formData]="form"
+    [buttonData]="buttonData"
     (formSubmitted)="onSubmit($event)">
  </lib-ng-reactive-dynamic-form>
 
