@@ -10,6 +10,7 @@ import { FormDataModel } from './form-data.model';
 })
 export class DynamicFormComponent implements OnChanges {
   @Input() formData: any;
+  @Input() buttonData: any;
   @Output() formSubmitted: EventEmitter<string> = new EventEmitter<string>();
 
   dynamicForm: FormGroup = this.formBuilder.group({});

@@ -2,12 +2,13 @@
   <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
     <ng-container *ngFor="let data of formData">
       <ng-container *ngIf="data.inputType == 'checkbox'; else commonInputType">
+        <label class="custom-label {{ data?.customLabelClass }}" *ngIf="data?.parentLabel"> {{ data?.parentLabel }} </label> 
         <div class="form-check">
           <div class="input-checkbox">
             <label class="form-check-label" [ngClass]="{ 'is-invalid-form': hasError(submitted, f[data?.formControl].errors) }">
-              <input [type]="data?.inputType" [formControlName]="data?.formControl" class="form-check-input"
-              (change)="getSelectedCheckboxData($event, data);"/> 
-              {{ data?.fieldName }} value  {{ f[data?.formControl].value}}
+              <input [type]="data?.inputType" [formControlName]="data?.formControl" class="form-check-input {{ data?.customInputClass }}"
+              (change)="getSelectedCheckboxData($event, data);" [id]="data?.id"/> 
+              {{ data?.fieldName }}
             </label>
             <div *ngIf="hasError(submitted, f[data?.formControl].errors)" [ngClass]="{
               'is-invalid-form': hasError(submitted, f[data?.formControl].errors),
@@ -19,10 +20,10 @@
       </ng-container>
       <ng-template #commonInputType>
         <div class="form-group">
-          <label class="form-label"> {{ data?.fieldName }}</label>
+          <label class="form-label {{ data?.customLabelClass }}"> {{ data?.fieldName }}</label>
           <div class="input-section">
-            <input [type]="data?.inputType" [formControlName]="data?.formControl" class="form-control"
-              [ngClass]="{ 'is-invalid': hasError(submitted, f[data?.formControl].errors) }" />
+            <input [type]="data?.inputType" [formControlName]="data?.formControl" class="form-control {{ data?.customInputClass }}"
+              [ngClass]="{ 'is-invalid': hasError(submitted, f[data?.formControl].errors) }" [placeholder]="data?.placeholder" [id]="data?.id"/>
             <div *ngIf="hasError(submitted, f[data?.formControl].errors)" [ngClass]="{
             'is-invalid-form': hasError(submitted, f[data?.formControl].errors),
             'invalid-feedback': hasError(!submitted,!f[data?.formControl].invalid) }">
@@ -34,13 +35,10 @@
     </ng-container>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary form-submit">Register</button>
-      <button type="button" (click)="onReset()" class="btn btn-warning">
-        Reset
-      </button>
+      <button type="submit" class="btn btn-primary form-submit {{buttonData?.primaryButton?.class}}"> {{ buttonData?.primaryButton?.buttonName ? buttonData?.primaryButton?.buttonName : 'Submit' }}</button>
+      <button type="button" (click)="onReset()" class="btn btn-warning {{buttonData?.resetButon?.class}}" *ngIf="buttonData?.resetButon?.enableResetButton"> {{ buttonData?.resetButon?.buttonName ? buttonData?.resetButon?.buttonName : 'Reset' }} </button>
     </div>
   </form>
 </div>
-
 <!-- <pre> {{ dynamicForm.value | json }}</pre> -->
 <!-- <pre> {{ formData | json }}</pre> -->
