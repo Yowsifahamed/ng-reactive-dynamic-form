@@ -77,3 +77,7 @@ The Angular library allows easy creation of dynamic reactive forms by passing a 
   }
 }
 ```
+
+## License
+
+[MIT License](LICENSE)

@@ -2,6 +2,7 @@
   "name": "ng-reactive-dynamic-form",
   "version": "0.0.1",
   "description": "Angular dynamic form",
+  "license":"MIT",
   "keywords": [
     "angular",
     "forms", 

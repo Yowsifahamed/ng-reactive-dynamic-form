@@ -7,7 +7,13 @@ The Angular library simplifies the creation of reactive forms using JSON data. W
 Install via NPM, using the command below.
 
 ```
-npm install --save npm i ng-reactive-dynamic-form
+npm install ng-reactive-dynamic-form
+```
+## Compatibility
+ng-reactive-dynamic-form is compatible with the following versions of Angular:
+
+```
+Angular 16.1.8 and later
 ```
 
 ## Getting started
@@ -39,16 +45,28 @@ The Angular library allows easy creation of dynamic reactive forms by passing a 
 
 ```
  export class AppComponent implements OnInit{
-  public form: Array<any> = [
-    {
-      fieldName: "Name", formControl: 'Name', ErrorMsg: "Name is required", ErrorMsgDescription: "", 
-      initalValue: "Yowsif", validation: true
-    },
-    {
-      fieldName: "Job", formControl: 'Job', ErrorMsg: "Job is required", ErrorMsgDescription: "", 
-      initalValue: "Software engineer", validation: true
-    }
-  ];
+  public form: Array<FormDataModel> = [
+      {
+        fieldName: "checkbox 1", formControl: 'checkbox1', errorMsg: "checkbox is required", ErrorMsgDescription: "", 
+        initalValue: "true", validation: false, inputType: "checkbox"
+      },
+      {
+        fieldName: "Name", formControl: 'Name', errorMsg: "Name is required", ErrorMsgDescription: "", 
+        initalValue: "Yowsif", validation: true, inputType: "text"
+      },
+      {
+        fieldName: "checkbox 2", formControl: 'checkbox2', errorMsg: "checkbox is required", ErrorMsgDescription: "", 
+        initalValue: "true", validation: false, inputType: "checkbox"
+      },
+      {
+        fieldName: "number", formControl: 'number', errorMsg: "number is required", ErrorMsgDescription: "", 
+        initalValue: 20, validation: true, inputType: "number"
+      },
+      {
+        fieldName: "Job", formControl: 'password', errorMsg: "Job is required", ErrorMsgDescription: "", 
+        initalValue: "Software engineer", validation: true, inputType: "password"
+      },
+    ];
   
   ngOnInit(): void {
   
@@ -60,7 +78,6 @@ The Angular library allows easy creation of dynamic reactive forms by passing a 
 }
 ```
 
-## Compatibility
-ng-reactive-dynamic-form is compatible with the following versions of Angular:
+## License
 
-Angular 16.1.8 and later
+[MIT License](LICENSE)
