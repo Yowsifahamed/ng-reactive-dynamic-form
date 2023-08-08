@@ -1,4 +1,4 @@
-<div class="register-form">
+<div class="dynamic-form">
   <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
     <ng-container *ngFor="let data of formData">
       <ng-container *ngIf="data.inputType == 'checkbox'; else commonInputType">
