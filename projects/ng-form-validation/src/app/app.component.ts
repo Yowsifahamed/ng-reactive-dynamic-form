@@ -81,8 +81,8 @@ export class AppComponent implements OnInit{
     },
     resetButon: {
       buttonName: "Reset",
-      isVisible: true,
-      class: "reset-btn"
+      class: "reset-btn",
+      isVisible: true
     }
   }
   
