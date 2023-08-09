@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormDataModel } from './form-data.model';
+import { FormDataModel, characterValidation } from './form-data.model';
 
 
 @Component({
@@ -22,18 +22,30 @@ export class DynamicFormComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['formData'] !== undefined) {
       this.formData.forEach((element:FormDataModel) => {
-        this.addDynamicControl(element.formControl, element.initalValue, element.validation, element.inputType)
+        this.addDynamicControl(element.formControl, element.initalValue, element.validation, element.inputType, element.characterValidation)
       });
     }
   }
 
-  public addDynamicControl(formControl: string, initialValue: string | boolean | number, validation: boolean, inputType: string): void {
-    this.dynamicForm.addControl(formControl, this.buildFormControl(initialValue, validation, inputType === 'checkbox' ? Validators.requiredTrue : Validators.required));
+  public addDynamicControl(formControl: string, initialValue: string | boolean | number, validation: boolean, inputType: string, charValidaion: characterValidation): void {
+    this.dynamicForm.addControl(formControl, this.buildFormControl(initialValue, validation, inputType === 'checkbox' ? Validators.requiredTrue : this.characterValidation(validation, charValidaion)));
   }
 
   public buildFormControl(initialValue: string | boolean | number, validation: boolean, validators: Validators){
     let control = new FormControl(initialValue, validation ? validators : new FormControl(initialValue))
     return control;
+  }
+
+  public characterValidation(validation: boolean, charValidaion: characterValidation){
+    let validationCollection: any;
+    if (validation && charValidaion?.requried) {
+      return validationCollection = [Validators.required, Validators.minLength(charValidaion.minLength), Validators.maxLength(charValidaion.maxLength)]
+    }else if (!validation && charValidaion?.requried) {
+      return validationCollection = [Validators.minLength(charValidaion.minLength), Validators.maxLength(charValidaion.maxLength)]
+    }else if (validation && !charValidaion?.requried) {
+      return validationCollection = Validators.required;
+    }
+    return '';
   }
   
   public getSelectedCheckboxData($event: any, data: FormDataModel): void {
@@ -46,7 +58,7 @@ export class DynamicFormComponent implements OnChanges {
     return this.dynamicForm.controls;
   }
 
-  public hasError(btnSubmit: boolean, control: any ){
+  public hasErrorFn(btnSubmit: boolean, control: any ){
     return btnSubmit && control;
   }
 

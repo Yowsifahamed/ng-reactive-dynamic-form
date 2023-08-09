@@ -22,5 +22,11 @@ export class FormDataModel {
     customInputClass!: string;
     customLabelClass!: string;
     id!: string;
+    characterValidation!: characterValidation
 }
 
+export class characterValidation {
+    requried!: boolean;
+    minLength!: number;
+    maxLength!: number;
+}

@@ -25,13 +25,18 @@ export class AppComponent implements OnInit{
       fieldName: "Name", 
       formControl: "Name", 
       errorMsg: "Name is required", 
-      initalValue: "Yowsif", 
+      initalValue: "Yo", 
       inputType: "text",
       placeholder: "Enter name",
       customInputClass: "input_name_form_control",
       customLabelClass: "checkbox_label",
       id: "checkbox_label",
       validation: true, 
+      characterValidation: {
+        requried: true,
+        minLength: 3,
+        maxLength: 10
+      }
     },
     {
       fieldName: "number", 
@@ -43,19 +48,29 @@ export class AppComponent implements OnInit{
       customInputClass: "input_number_form_control",
       customLabelClass: "checkbox_label",
       id: "checkbox_label",
-      validation: true
+      validation: true,
+      characterValidation: {
+        requried: true,
+        minLength: 3,
+        maxLength: 10
+      }
     },
     {
       fieldName: "password", 
       formControl: "password", 
       errorMsg: "Password is required", 
-      initalValue: "Software engineer", 
+      initalValue: "So", 
       inputType: "password",
       placeholder: "Enter password",
       customInputClass: "input_password_form_control",
       customLabelClass: "checkbox_label",
       id: "checkbox_label",
       validation: true, 
+      characterValidation: {
+        requried: true,
+        minLength: 3,
+        maxLength: 10
+      }
     },
   ];
 
@@ -66,7 +81,7 @@ export class AppComponent implements OnInit{
     },
     resetButon: {
       buttonName: "Reset",
-      enableResetButton: true,
+      isVisible: true,
       class: "reset-btn"
     }
   }

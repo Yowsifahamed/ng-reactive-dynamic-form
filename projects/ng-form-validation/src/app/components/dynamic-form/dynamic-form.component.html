@@ -5,14 +5,14 @@
         <label class="custom-label {{ data?.customLabelClass }}" *ngIf="data?.parentLabel"> {{ data?.parentLabel }} </label> 
         <div class="form-check">
           <div class="input-checkbox">
-            <label class="form-check-label" [ngClass]="{ 'is-invalid-form': hasError(submitted, f[data?.formControl].errors) }">
+            <label class="form-check-label" [ngClass]="{ 'is-invalid-form': hasErrorFn(submitted, f[data?.formControl].errors) }">
               <input [type]="data?.inputType" [formControlName]="data?.formControl" class="form-check-input {{ data?.customInputClass }}"
               (change)="getSelectedCheckboxData($event, data);" [id]="data?.id"/> 
               {{ data?.fieldName }}
             </label>
-            <div *ngIf="hasError(submitted, f[data?.formControl].errors)" [ngClass]="{
-              'is-invalid-form': hasError(submitted, f[data?.formControl].errors),
-              'invalid-feedback': hasError(!submitted,!f[data?.formControl].invalid) }">
+            <div *ngIf="hasErrorFn(submitted, f[data?.formControl].invalid)" [ngClass]="{
+              'is-invalid-form': hasErrorFn(submitted, f[data?.formControl].errors),
+              'invalid-feedback': hasErrorFn(!submitted,!f[data?.formControl].invalid) }">
                 <div class="is-invalid-form"> {{ data?.errorMsg }}</div>
               </div>
           </div>
@@ -23,11 +23,13 @@
           <label class="form-label {{ data?.customLabelClass }}"> {{ data?.fieldName }}</label>
           <div class="input-section">
             <input [type]="data?.inputType" [formControlName]="data?.formControl" class="form-control {{ data?.customInputClass }}"
-              [ngClass]="{ 'is-invalid': hasError(submitted, f[data?.formControl].errors) }" [placeholder]="data?.placeholder" [id]="data?.id"/>
-            <div *ngIf="hasError(submitted, f[data?.formControl].errors)" [ngClass]="{
-            'is-invalid-form': hasError(submitted, f[data?.formControl].errors),
-            'invalid-feedback': hasError(!submitted,!f[data?.formControl].invalid) }">
-              <div class="is-invalid-form"> {{ data?.errorMsg }}</div>
+              [ngClass]="{ 'is-invalid': hasErrorFn(submitted, f[data?.formControl].errors) }" [placeholder]="data?.placeholder" [id]="data?.id"/>
+            <div *ngIf="hasErrorFn(submitted, f[data?.formControl].invalid)" [ngClass]="{
+            'is-invalid-form': hasErrorFn(submitted, f[data?.formControl].errors),
+            'invalid-feedback': hasErrorFn(!submitted,!f[data?.formControl].invalid) }">
+              <div class="is-invalid-form" *ngIf="f[data?.formControl].errors?.['required']"> {{ data?.errorMsg }}</div>
+              <div *ngIf="f[data?.formControl].errors?.['minlength']">Username must be at least {{data?.characterValidation?.minLength}} characters long.</div>
+              <div *ngIf="f[data?.formControl].errors?.['maxLength']">Username cannot exceed {{data?.characterValidation?.maxLength}} characters.</div>
             </div>
           </div>
         </div>
@@ -36,9 +38,9 @@
 
     <div class="form-group">
       <button type="submit" class="btn btn-primary form-submit {{buttonData?.primaryButton?.class}}"> {{ buttonData?.primaryButton?.buttonName ? buttonData?.primaryButton?.buttonName : 'Submit' }}</button>
-      <button type="button" (click)="onReset()" class="btn btn-warning {{buttonData?.resetButon?.class}}" *ngIf="buttonData?.resetButon?.enableResetButton"> {{ buttonData?.resetButon?.buttonName ? buttonData?.resetButon?.buttonName : 'Reset' }} </button>
+      <button type="button" (click)="onReset()" class="btn btn-warning {{buttonData?.resetButon?.class}}" *ngIf="buttonData?.resetButon?.isVisible"> {{ buttonData?.resetButon?.buttonName ? buttonData?.resetButon?.buttonName : 'Reset' }} </button>
     </div>
   </form>
 </div>
-<!-- <pre> {{ dynamicForm.value | json }}</pre> -->
+<pre> {{ dynamicForm.value | json }}</pre>
 <!-- <pre> {{ formData | json }}</pre> -->
