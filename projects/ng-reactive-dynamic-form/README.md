@@ -101,7 +101,7 @@ The primary button is a submit type button, and the secondary button is a reset 
     },
     resetButon: {
       buttonName: "Reset",
-      enableResetButton: true,
+      isVisible: true,
       class: "reset-btn"
     }
   }
