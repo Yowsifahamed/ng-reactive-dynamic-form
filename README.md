@@ -146,7 +146,7 @@ The primary button is a submit type button, and the secondary button is a reset 
 | formControl | Reactive form's form control (input)
 | errorMsg | Error message
 | initalValue | Initial value of the form control (input)
-| inputType | Input type: text | checkbox | password | number
+| inputType | Input type: text, checkbox, password, number
 | placeholder | Placeholder of the form control (input)
 | customInputClass | Customized class for form control (input)
 | customLabelClass | Customized class for form control's label
