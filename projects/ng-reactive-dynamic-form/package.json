@@ -19,9 +19,5 @@
     "tslib": "^2.3.0"
   },
   "sideEffects": false,
-  "exports": {
-    "./form": {
-      "css": "./form.css"
-    }
-  }
+  "style": "style/form.css"
 }
