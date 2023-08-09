@@ -30,8 +30,7 @@
               "projects/ng-form-validation/src/assets"
             ],
             "styles": [
-              "projects/ng-form-validation/src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "projects/ng-form-validation/src/styles.scss"
             ],
             "scripts": []
           },
