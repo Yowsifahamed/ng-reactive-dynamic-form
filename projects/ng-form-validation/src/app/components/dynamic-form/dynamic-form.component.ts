@@ -39,13 +39,13 @@ export class DynamicFormComponent implements OnChanges {
   public characterValidation(validation: boolean, charValidaion: characterValidation){
     let validationCollection: any;
     if (validation && charValidaion?.requried) {
-      return validationCollection = [Validators.required, Validators.minLength(charValidaion.minLength), Validators.maxLength(charValidaion.maxLength)]
+      validationCollection = [Validators.required, Validators.minLength(charValidaion.minLength), Validators.maxLength(charValidaion.maxLength)]
     }else if (!validation && charValidaion?.requried) {
-      return validationCollection = [Validators.minLength(charValidaion.minLength), Validators.maxLength(charValidaion.maxLength)]
+      validationCollection = [Validators.minLength(charValidaion.minLength), Validators.maxLength(charValidaion.maxLength)]
     }else if (validation && !charValidaion?.requried) {
-      return validationCollection = Validators.required;
+      validationCollection = Validators.required;
     }
-    return '';
+    return validationCollection;
   }
   
   public getSelectedCheckboxData($event: any, data: FormDataModel): void {
