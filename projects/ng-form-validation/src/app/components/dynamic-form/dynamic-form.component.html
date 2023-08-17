@@ -6,7 +6,7 @@
         <div class="form-check">
           <div class="input-checkbox">
             <label class="form-check-label" [ngClass]="{ 'is-invalid-form': hasErrorFn(submitted, f[data?.formControl].errors) }">
-              <input [type]="data?.inputType" [formControlName]="data?.formControl" class="form-check-input {{ data?.customInputClass }}"
+              <input type="checkbox" [formControlName]="data?.formControl" class="form-check-input {{ data?.customInputClass }}"
               (change)="getSelectedCheckboxData($event, data);" [id]="data?.id"/> 
               {{ data?.fieldName }}
             </label>
