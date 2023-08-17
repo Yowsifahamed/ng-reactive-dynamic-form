@@ -48,12 +48,6 @@ export class DynamicFormComponent implements OnChanges {
     return validationCollection;
   }
   
-  public getSelectedCheckboxData($event: any, data: FormDataModel): void {
-    const formControl: FormGroup = this.dynamicForm.get(data?.formControl) as FormGroup;
-    formControl.setValue($event.target.checked);
-  }
-  
-
   get f(): { [key: string]: AbstractControl } {
     return this.dynamicForm.controls;
   }
